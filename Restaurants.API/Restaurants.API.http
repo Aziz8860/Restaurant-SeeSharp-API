@@ -1,0 +1,29 @@
+@host = http://localhost
+@port = 5257
+@Restaurants.API_HostAddress = https://localhost:7023
+
+GET {{Restaurants.API_HostAddress}}/api/weatherforecast/23/example?max=15
+Accept: application/json
+
+###
+
+GET {{Restaurants.API_HostAddress}}/api/weatherforecast/currentDay
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/weatherforecast/
+Content-Type: application/json
+
+"Test"
+
+###
+@count=0
+POST {{Restaurants.API_HostAddress}}/api/weatherforecast/generate?count={{count}}
+Content-Type: application/json
+
+{
+  "min": -23,
+  "max": 23
+}
+
+###
