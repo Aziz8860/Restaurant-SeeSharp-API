@@ -1,6 +1,16 @@
-﻿namespace Restaurants.API.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+using Restaurants.Application.Restaurants;
+
+namespace Restaurants.API.Controllers;
+
+[ApiController]
+[Route("api/restaurants")]
+public class RestaurantsController(IRestaurantsService restaurantsService) : ControllerBase
 {
-    public class RestaurantsController
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
     {
+        var restaurants = await restaurantsService.GetAllRestaurants();
+        return Ok(restaurants);
     }
 }
