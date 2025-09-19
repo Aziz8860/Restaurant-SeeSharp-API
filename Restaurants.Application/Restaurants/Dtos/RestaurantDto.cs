@@ -1,4 +1,4 @@
-﻿using Restaurants.Application.Dishes.Dtos;
+﻿using Restaurants.Application.Restaurants.Dtos;
 using Restaurants.Domain.Entities;
 
 namespace Restaurants.Application.Restaurants.Dtos;

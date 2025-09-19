@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Restaurants.Domain.Entities;
 
-namespace Restaurants.Application.Dishes.Dtos;
+namespace Restaurants.Application.Restaurants.Dtos;
 
 public class DishesProfile : Profile
 {
