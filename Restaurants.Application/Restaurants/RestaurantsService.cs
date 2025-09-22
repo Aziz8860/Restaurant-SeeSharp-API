@@ -13,7 +13,7 @@ internal class RestaurantsService(IRestaurantsRepository restaurantsRepository, 
     {
         logger.LogInformation("Creating a new restaurant");
 
-        var restaurant = mapper.Map<RestaurantDto>(dto);
+        var restaurant = mapper.Map<Restaurant>(dto);
 
         int id = await restaurantsRepository.Create(restaurant);
         return id;
