@@ -31,3 +31,14 @@ Content-Type: application/json
 }
 
 ###
+
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/1007
+Content-Type: application/json
+
+{
+  "Name": "Sample Patch",
+  "Description": "This is a sample restaurant description",
+  "HasDelivery": true
+}
+
+###

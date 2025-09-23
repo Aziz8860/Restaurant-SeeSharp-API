@@ -1,11 +1,13 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using Microsoft.Extensions.Logging;
 using Restaurants.Domain.Repositories;
 
 namespace Restaurants.Application.Restaurants.Commands.UpdateRestaurant;
 
 public class UpdateRestaurantCommandHandler(ILogger<UpdateRestaurantCommandHandler> logger,
-    IRestaurantsRepository restaurantsRepository) : IRequestHandler<UpdateRestaurantCommand, bool>
+    IRestaurantsRepository restaurantsRepository,
+    IMapper mapper) : IRequestHandler<UpdateRestaurantCommand, bool>
 {
     public async Task<bool> Handle(UpdateRestaurantCommand request, CancellationToken cancellationToken)
     {
@@ -14,9 +16,10 @@ public class UpdateRestaurantCommandHandler(ILogger<UpdateRestaurantCommandHandl
         if (restaurant is null)
             return false; // not found
 
-        restaurant.Name = request.Name;
-        restaurant.Description = request.Description;
-        restaurant.HasDelivery = request.HasDelivery;
+        mapper.Map(request, restaurant);
+        //restaurant.Name = request.Name;
+        //restaurant.Description = request.Description;
+        //restaurant.HasDelivery = request.HasDelivery;
 
         await restaurantsRepository.SaveChanges();
 
